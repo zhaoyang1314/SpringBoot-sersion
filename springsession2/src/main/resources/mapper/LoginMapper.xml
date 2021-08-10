@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.session2.springsession2.mapper.LoginMapper">
+
+
+    <select id="getLoginInfo" parameterType="String" resultType="String">
+        select password from sys_user where username = #{username}
+    </select>
+    <select id="getUserAll"  resultType="java.util.HashMap" parameterType="java.util.List">
+            select password from sys_user where username in 
+            <foreach collection="array" item="username" open="(" separator="," close=")">
+                #{username}
+            </foreach>
+            
+    </select>
+</mapper>
