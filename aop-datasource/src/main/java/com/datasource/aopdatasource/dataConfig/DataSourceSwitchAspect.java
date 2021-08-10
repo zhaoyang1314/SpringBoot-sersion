@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class DataSourceSwitchAspect {
     //设置该路径下mapper使用first数据源
-    @Pointcut("execution(* com.datasource.aopdatasource.mapper.first..*.*(..))")
+    @Pointcut("@annotation(com.datasource.aopdatasource.dataConfig.DataSources)")
     private void firstAspect() {
     }
     //设置该路径下mapper使用second数据源
