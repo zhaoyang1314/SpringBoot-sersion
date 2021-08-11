@@ -1,6 +1,7 @@
 package com.session2.springsession2.controller;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
+import com.geely.esb.adapter.framework.requester.impl.BaseServiceRequester;
 import com.session2.springsession2.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,6 +32,7 @@ public class LoginController {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
 
     @RequestMapping("/login/{userName}")
     public String login(@PathVariable String userName, HttpServletRequest request, HttpServletResponse response){
