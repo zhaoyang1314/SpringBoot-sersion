@@ -1,4 +1,4 @@
-package redis.snowConfig;
+package com.redis.redislock.redis.snowConfig;
 
 import cn.hutool.core.lang.Snowflake;
 import org.springframework.beans.factory.annotation.Value;

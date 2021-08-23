@@ -1,4 +1,4 @@
-package redis.util;
+package com.redis.redislock.redis.util;
 
 /**
  * @author: wade

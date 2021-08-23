@@ -1,8 +1,8 @@
-package redis.config;
+package com.redis.redislock.redis.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -26,12 +26,15 @@ public class RedisLock {
 
     private long timeout = 999999; //获取锁的超时时间
 
+@Value("${redis.config.host}")
+    private String IP;
+
 
     //SET命令的参数
     SetParams params = SetParams.setParams().nx().px(internalLockLeaseTime);
 
-    @Autowired
-    JedisPool jedisPool;
+    // 使用jedisPool时候需要将对应的连接池进行初始化,否则使用会出现异常
+    JedisPool jedisPool = new JedisPool("127.0.0.1", 6379);
 
 
     /**
